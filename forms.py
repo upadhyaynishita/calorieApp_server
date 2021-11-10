@@ -35,7 +35,7 @@ class LoginForm(FlaskForm):
     remember = BooleanField('Remember Me')
     submit = SubmitField('Login')
 
-
+"""
 class CalorieForm(FlaskForm):
     app = App()
     mongo = app.mongo
@@ -56,7 +56,7 @@ class CalorieForm(FlaskForm):
 
     burnout = StringField('Burn Out', validators=[DataRequired()])
     submit = SubmitField('Save')
-
+"""
 
 class UserProfileForm(FlaskForm):
     weight = StringField(
