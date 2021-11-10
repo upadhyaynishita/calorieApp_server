@@ -11,7 +11,7 @@ from flask import json
 from flask.helpers import make_response
 from flask.json import jsonify
 from flask_mail import Mail, Message
-from forms import HistoryForm, RegistrationForm, LoginForm, UserProfileForm, EnrollForm
+from forms import HistoryForm, RegistrationForm, LoginForm, UserProfileForm, EnrollForm, CalorieForm
 import bcrypt
 #from apps import App
 from flask_login import LoginManager, login_required
@@ -117,7 +117,7 @@ def register():
         return redirect(url_for('home'))
     return render_template('register.html', title='Register', form=form)
 
-"""
+
 @app.route("/calories", methods=['GET', 'POST'])
 def calories():
     # ############################
@@ -155,7 +155,7 @@ def calories():
         return redirect(url_for('home'))
     return render_template('calories.html', form=form, time=now)
 
-"""
+
 @app.route("/user_profile", methods=['GET', 'POST'])
 def user_profile():
     # ############################
