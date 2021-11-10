@@ -11,7 +11,7 @@ from flask import json
 from flask.helpers import make_response
 from flask.json import jsonify
 from flask_mail import Mail, Message
-from forms import HistoryForm, RegistrationForm, LoginForm, CalorieForm, UserProfileForm, EnrollForm
+from forms import HistoryForm, RegistrationForm, LoginForm, UserProfileForm, EnrollForm
 import bcrypt
 #from apps import App
 from flask_login import LoginManager, login_required
