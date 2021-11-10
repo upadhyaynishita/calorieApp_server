@@ -8,7 +8,7 @@
 ![last commit](https://img.shields.io/github/last-commit/atharva1996/calorieApp_server)
 ![total lines](https://img.shields.io/tokei/lines/github/atharva1996/calorieApp_server)
 
-
+#total
 
 # BurnOut
 
