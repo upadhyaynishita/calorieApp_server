@@ -35,42 +35,27 @@ class LoginForm(FlaskForm):
     remember = BooleanField('Remember Me')
     submit = SubmitField('Login')
 
-class Food:
-    result = []
-    def get_food(self):
-        app = App()
-        mongo = app.mongo
 
-        f = open('food_data/calories.csv', 'r', encoding = "ISO-8859-1")
-        l = f.readlines()
-
-        for i in range(1, len(l)):
-            l[i] = l[i][1:len(l[i]) - 2]
-
-        for i in range(1, len(l)):
-            temp = l[i].split(",")
-            mongo.db.food.insert({'food': temp[0], 'calories': temp[1]})
-
-
-        cursor = mongo.db.food.find()
-        get_docs = []
-        for record in cursor:
-            get_docs.append(record)
-
-        self.result = []
-        temp = ""
-        for i in get_docs:
-            temp = i['food'] + ' (' + i['calories'] + ')'
-            self.result.append((temp, temp))
-        return self.result
-    
 class CalorieForm(FlaskForm):
+    app = App()
+    mongo = app.mongo
+
+    cursor = mongo.db.food.find()
+    get_docs = []
+    for record in cursor:
+        get_docs.append(record)
+
+    result = []
+    temp = ""
+    for i in get_docs:
+        temp = i['food'] + ' (' + i['calories'] + ')'
+        result.append((temp, temp))
+
+    food = SelectField(
+        'Select Food', choices=result)
+
     burnout = StringField('Burn Out', validators=[DataRequired()])
     submit = SubmitField('Save')
-    f = Food()
-    result = f.get_food()
-    food = SelectField('Select Food', choices=result)
-
 
 
 class UserProfileForm(FlaskForm):
